@@ -109,6 +109,51 @@ An IAM user (`john.engineer`) successfully logged in and deployed an EC2 instanc
 
 ---
 
+## 🪣 S3 Secure File Storage (Engineering Use Case)
+
+To further simulate real-world cloud operations, a secure Amazon S3 bucket was created by the administrator and accessed by the Engineering team.
+
+This demonstrates how centralized infrastructure is provisioned by admins and consumed by engineers using IAM permissions.
+
+---
+
+## ⚙️ Implementation Steps
+
+- S3 bucket created by `richard.admin`  
+- Engineering-Team already had `AmazonS3FullAccess` policy  
+- `john.engineer` logged in and accessed the bucket  
+- File successfully uploaded to validate permissions  
+
+---
+
+## 📸 File Upload by Engineering User
+
+The image below shows `john.engineer` uploading a file into the S3 bucket:
+
+![S3 Upload](./screenshots/s3-file-upload.png)
+
+---
+
+## 🔐 Access Control Validation
+
+This step confirms that:
+
+- IAM policies are correctly applied  
+- Engineers can interact with cloud storage  
+- Access is controlled based on roles (RBAC)  
+
+---
+
+## 🧠 Real-World Scenario Simulated
+
+- Admin provisions storage infrastructure  
+- Engineers use storage for application/data needs  
+- Access is controlled via IAM (not shared credentials)  
+
+This reflects how modern organizations manage cloud storage securely.
+
+---
+
 ## 🧠 Key Concepts Demonstrated
 
 - Identity and Access Management (IAM)  
