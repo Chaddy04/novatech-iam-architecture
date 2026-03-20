@@ -98,12 +98,24 @@ The image below confirms MFA is enabled for the admin IAM user:
 
 ---
 
+## 💻 EC2 Deployment (Engineering Team)
+
+To simulate real-world usage, the Engineering team was granted permission to launch and manage virtual servers using Amazon EC2.
+
+An IAM user (`john.engineer`) successfully logged in and deployed an EC2 instance, demonstrating how access control policies enable engineers to perform their tasks securely.
+
+### 📸 EC2 Instance Running
+![EC2](./screenshots/ec2-instance-running.png)
+
+---
+
 ## 🧠 Key Concepts Demonstrated
 
 - Identity and Access Management (IAM)  
 - Role-Based Access Control (RBAC)  
 - Least Privilege Principle  
-- Multi-Factor Authentication (MFA)  
+- Multi-Factor Authentication (MFA)
+- Amazon EC2 (Cloud Compute)  
 - Organizational Cloud Security Design  
 
 ---
@@ -115,7 +127,14 @@ This project demonstrates the ability to:
 - Design a scalable IAM structure  
 - Manage users and permissions securely  
 - Apply real-world cloud security practices  
-- Simulate enterprise-level cloud environments  
+- Simulate enterprise-level cloud environments
+- Deploy and manage cloud infrastructure 
+
+---
+
+## 🗣️ How I Would Explain This Project
+
+In this project, I simulated a real-world organization by designing an IAM structure that organizes users into groups and assigns permissions based on roles. I then validated the setup by logging in as an engineer and deploying an EC2 instance, demonstrating how access control enables secure cloud operations.
 
 ---
 
