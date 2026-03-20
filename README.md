@@ -70,7 +70,7 @@ Permissions are assigned at the group level:
 ### 📸 Engineering Team Policies
 The image below shows policies attached to the Engineering group:
 
-![Policies](./screenshots/engineering-policies.png)
+![Policies](./screenshots/engineering-team-policies.png)
 
 ---
 
@@ -79,7 +79,7 @@ The image below shows policies attached to the Engineering group:
 All users created for the simulated organization:
 
 ### 📸 IAM Users List
-![IAM Users](./screenshots/users-list.png)
+![IAM Users](./screenshots/iam-users.png)
 
 ---
 
