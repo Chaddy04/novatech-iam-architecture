@@ -1,73 +1,128 @@
-# NovaTech IAM Architecture (AWS)
+# 🏢 NovaTech IAM Architecture (AWS)
 
-## 🏢 Project Overview
+## 📌 Project Overview
+This project simulates the design and implementation of an AWS Identity and Access Management (IAM) architecture for a mid-sized organization (50–100 employees).
 
-This project simulates an organization (NovaTech Solutions) with ~75 employees transitioning to AWS. The goal is to design a secure and scalable IAM structure using best practices.
-
----
-
-## 🎯 Objectives
-
-* Implement role-based access control (RBAC)
-* Enforce least privilege access
-* Simulate departmental access in a real-world environment
+The goal is to demonstrate how to securely manage users, groups, and permissions using industry best practices such as Role-Based Access Control (RBAC), least privilege, and multi-factor authentication (MFA).
 
 ---
 
-## 🏗️ IAM Structure
+## 🧱 Architecture Design
 
-### Departments:
+The organization is divided into departments, each with specific access needs:
 
-* Engineering Team
-* HR Team
-* Finance Team
-* Support Team
-
-### Groups Created:
-
-* Engineering-Team → EC2 & S3 Access
-* HR-Team → S3 Read-Only Access
-* Finance-Team → Billing Access
-* Support-Team → CloudWatch Read-Only
+- Engineering Team → EC2 & S3 access  
+- HR Team → Limited access  
+- Finance Team → Billing access  
+- Support Team → Read-only access  
 
 ---
 
-## 👥 Users (Simulated)
+## 👥 IAM Users (Simulated)
 
-* john.engineer
-* mary.hr
-* david.finance
-* lisa.support
+The following users were created to represent employees:
+
+- `richard.admin` (Administrator)
+- `john.engineer`
+- `mary.hr`
+- `david.finance`
+- `lisa.support`
+
+---
+
+## 🏗️ IAM Groups
+
+Users are organized into groups to simplify permission management:
+
+- Engineering-Team  
+- HR-Team  
+- Finance-Team  
+- Support-Team  
+
+### 📸 IAM Groups Overview
+The images below shows the IAM groups created for different departments:
+
+![IAM Groups](./screenshots/iam-groups.png)
+![IAM Groups](./screenshots/iam_groups.png)
+
+---
+
+## 🔐 Access Control (RBAC)
+
+Each user is assigned to a group based on their role.  
+This ensures permissions are managed efficiently and consistently.
+
+### 📸 User Group Assignment (john.engineer)
+Example of a user assigned to the Engineering team:
+
+![User Group](./screenshots/john-engineer-group.png)
+
+---
+
+## ⚙️ Permissions & Policies
+
+Permissions are assigned at the group level:
+
+- Engineering-Team → AmazonEC2FullAccess, AmazonS3FullAccess  
+- HR-Team → Limited access  
+- Finance-Team → Billing access  
+- Support-Team → ReadOnlyAccess  
+
+### 📸 Engineering Team Policies
+The image below shows policies attached to the Engineering group:
+
+![Policies](./screenshots/engineering-policies.png)
+
+---
+
+## 👥 IAM Users Overview
+
+All users created for the simulated organization:
+
+### 📸 IAM Users List
+![IAM Users](./screenshots/users-list.png)
 
 ---
 
 ## 🔐 Security Implementation
 
-* MFA enabled for admin IAM user (`richard.admin`)
-* Strong password policy enforced
-* Root account restricted to emergency use only
+Security best practices were applied:
 
-> Note: In a real production environment, MFA would be enforced for all users.
+- MFA enabled for admin user  
+- Root account avoided for daily operations  
+- Least privilege principle enforced  
 
----
+### 📸 MFA Enabled
+The image below confirms MFA is enabled for the admin IAM user:
 
-## 🧠 Key Learnings
-
-* Importance of least privilege
-* Role-based access control simplifies management
-* IAM misconfiguration can lead to major security risks
+![MFA Enabled](./screenshots/mfa-enabled.png)
 
 ---
 
-## 🚧 Challenges Faced
+## 🧠 Key Concepts Demonstrated
 
-* IAM login issues (resolved by using IAM sign-in URL)
-* Understanding policy assignment per department
+- Identity and Access Management (IAM)  
+- Role-Based Access Control (RBAC)  
+- Least Privilege Principle  
+- Multi-Factor Authentication (MFA)  
+- Organizational Cloud Security Design  
 
 ---
 
-## 📌 Future Improvements
+## 🚀 Outcome
 
-* Implement custom IAM policies
-* Restrict S3 access to specific buckets
-* Enforce MFA across all users
+This project demonstrates the ability to:
+
+- Design a scalable IAM structure  
+- Manage users and permissions securely  
+- Apply real-world cloud security practices  
+- Simulate enterprise-level cloud environments  
+
+---
+
+## 📌 Notes
+
+- This is a simulated environment built for learning and portfolio purposes  
+- No sensitive data or credentials are exposed  
+
+---
