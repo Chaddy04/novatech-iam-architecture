@@ -43,7 +43,6 @@ Users are organized into groups to simplify permission management:
 The images below shows the IAM groups created for different departments:
 
 ![IAM Groups](./screenshots/iam-groups.png)
-![IAM Groups](./screenshots/iam_groups.png)
 
 ---
 
@@ -55,7 +54,7 @@ This ensures permissions are managed efficiently and consistently.
 ### 📸 User Group Assignment (john.engineer)
 Example of a user assigned to the Engineering team:
 
-![User Group](./screenshots/john-engineer-group.png)
+![User Group](./screenshots/iam_groups.png)
 
 ---
 
