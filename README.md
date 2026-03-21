@@ -14,7 +14,7 @@ The organization is divided into departments, each with specific access needs:
 - Engineering Team → EC2 & S3 access  
 - HR Team → Limited access  
 - Finance Team → Billing access  
-- Support Team → Read-only access  
+- Support Team → Restricted read-only access to S3  
 
 ---
 
@@ -40,8 +40,6 @@ Users are organized into groups to simplify permission management:
 - Support-Team  
 
 ### 📸 IAM Groups Overview
-The images below shows the IAM groups created for different departments:
-
 ![IAM Groups](./screenshots/iam-groups.png)
 
 ---
@@ -52,8 +50,6 @@ Each user is assigned to a group based on their role.
 This ensures permissions are managed efficiently and consistently.
 
 ### 📸 User Group Assignment (john.engineer)
-Example of a user assigned to the Engineering team:
-
 ![User Group](./screenshots/iam_groups.png)
 
 ---
@@ -65,18 +61,14 @@ Permissions are assigned at the group level:
 - Engineering-Team → AmazonEC2FullAccess, AmazonS3FullAccess  
 - HR-Team → Limited access  
 - Finance-Team → Billing access  
-- Support-Team → ReadOnlyAccess  
+- Support-Team → Custom S3 read-only policy  
 
 ### 📸 Engineering Team Policies
-The image below shows policies attached to the Engineering group:
-
 ![Policies](./screenshots/engineering-team-policies.png)
 
 ---
 
 ## 👥 IAM Users Overview
-
-All users created for the simulated organization:
 
 ### 📸 IAM Users List
 ![IAM Users](./screenshots/iam-users.png)
@@ -90,10 +82,9 @@ Security best practices were applied:
 - MFA enabled for admin user  
 - Root account avoided for daily operations  
 - Least privilege principle enforced  
+- Custom IAM policies used instead of overly broad managed policies  
 
 ### 📸 MFA Enabled
-The image below confirms MFA is enabled for the admin IAM user:
-
 ![MFA Enabled](./screenshots/mfa-enabled.png)
 
 ---
@@ -102,7 +93,7 @@ The image below confirms MFA is enabled for the admin IAM user:
 
 To simulate real-world usage, the Engineering team was granted permission to launch and manage virtual servers using Amazon EC2.
 
-An IAM user (`john.engineer`) successfully logged in and deployed an EC2 instance, demonstrating how access control policies enable engineers to perform their tasks securely.
+An IAM user (`john.engineer`) successfully deployed an EC2 instance, validating that role-based permissions were correctly configured.
 
 ### 📸 EC2 Instance Running
 ![EC2](./screenshots/ec2-instance-running.png)
@@ -111,46 +102,51 @@ An IAM user (`john.engineer`) successfully logged in and deployed an EC2 instanc
 
 ## 🪣 S3 Secure File Storage (Engineering Use Case)
 
-To further simulate real-world cloud operations, a secure Amazon S3 bucket was created by the administrator and accessed by the Engineering team.
+A secure Amazon S3 bucket was created by the administrator and accessed by the Engineering team.
 
-This demonstrates how centralized infrastructure is provisioned by admins and consumed by engineers using IAM permissions.
+This demonstrates how infrastructure is provisioned centrally and accessed based on IAM roles.
 
 ---
 
 ## ⚙️ Implementation Steps
 
 - S3 bucket created by `richard.admin`  
-- Engineering-Team already had `AmazonS3FullAccess` policy  
-- `john.engineer` logged in and accessed the bucket  
-- File successfully uploaded to validate permissions  
+- Engineering-Team granted S3 access via IAM policy  
+- `john.engineer` uploaded a file to validate access  
+- Access tested across different roles  
 
 ---
 
 ## 📸 File Upload by Engineering User
-
-The image below shows `john.engineer` uploading a file into the S3 bucket:
-
 ![S3 Upload](./screenshots/s3-file-upload.png)
+
+---
+
+## 👨‍💼 Support Team Read-Only Access
+
+To enforce least privilege, a custom IAM policy was created to restrict the Support team to read-only access for a specific S3 bucket.
+
+Unlike AWS-managed `ReadOnlyAccess`, this custom policy ensures Support users can only access required resources.
+
+### 📸 Support User Access (Read-Only)
+![Support Access](./screenshots/s3-support-readonly.png)
 
 ---
 
 ## 🔐 Access Control Validation
 
-This step confirms that:
-
-- IAM policies are correctly applied  
-- Engineers can interact with cloud storage  
-- Access is controlled based on roles (RBAC)  
+- Engineers can upload and manage files  
+- Support can only view and download files  
+- Unauthorized actions (upload/delete by support) are denied  
 
 ---
 
 ## 🧠 Real-World Scenario Simulated
 
-- Admin provisions storage infrastructure  
-- Engineers use storage for application/data needs  
-- Access is controlled via IAM (not shared credentials)  
-
-This reflects how modern organizations manage cloud storage securely.
+- Admin provisions infrastructure (IAM, S3, EC2)  
+- Engineers deploy and interact with cloud resources  
+- Support teams access only necessary data  
+- Access is enforced using IAM policies (no shared credentials)  
 
 ---
 
@@ -159,9 +155,11 @@ This reflects how modern organizations manage cloud storage securely.
 - Identity and Access Management (IAM)  
 - Role-Based Access Control (RBAC)  
 - Least Privilege Principle  
-- Multi-Factor Authentication (MFA)
-- Amazon EC2 (Cloud Compute)  
-- Organizational Cloud Security Design  
+- Multi-Factor Authentication (MFA)  
+- Amazon EC2 (Compute)  
+- Amazon S3 (Storage)  
+- IAM Policy Customization  
+- Secure Cloud Architecture Design  
 
 ---
 
@@ -169,17 +167,24 @@ This reflects how modern organizations manage cloud storage securely.
 
 This project demonstrates the ability to:
 
-- Design a scalable IAM structure  
-- Manage users and permissions securely  
-- Apply real-world cloud security practices  
-- Simulate enterprise-level cloud environments
-- Deploy and manage cloud infrastructure 
+- Design scalable IAM architectures  
+- Implement secure access control strategies  
+- Apply least privilege using custom policies  
+- Deploy and manage cloud infrastructure  
+- Simulate real-world enterprise environments  
 
 ---
 
 ## 🗣️ How I Would Explain This Project
 
-In this project, I simulated a real-world organization by designing an IAM structure that organizes users into groups and assigns permissions based on roles. I then validated the setup by logging in as an engineer and deploying an EC2 instance, demonstrating how access control enables secure cloud operations.
+In this project, I designed a secure IAM architecture for a simulated organization by grouping users based on roles and assigning permissions accordingly.
+
+I validated the setup by:
+- Deploying an EC2 instance as an engineer  
+- Uploading files to S3  
+- Restricting support users to read-only access using a custom policy  
+
+This demonstrates how role-based access control and least privilege are applied in real-world cloud environments.
 
 ---
 
