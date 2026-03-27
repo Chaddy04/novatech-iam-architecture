@@ -100,6 +100,52 @@ An IAM user (`john.engineer`) successfully deployed an EC2 instance, validating 
 
 ---
 
+## 🌐 Public Subnet EC2 Deployment (Networking Concept)
+
+To extend the architecture beyond IAM, a public-facing EC2 instance was deployed within a custom VPC to demonstrate AWS networking fundamentals.
+
+This shows how cloud resources are made accessible over the internet.
+
+---
+
+## Implementation Details
+VPC: novatech-vpc
+Subnet: public-subnet
+Auto-assign Public IP: Enabled
+Internet Gateway: Attached to VPC
+Route Table: Configured with route to 0.0.0.0/0 via IGW
+
+---
+
+## 🧠 Key Validation
+
+The EC2 instance successfully received:
+
+Public IPv4 address → 13.63.238.10
+Private IP address → 10.0.1.83
+Running state confirmed
+
+This verifies that:
+
+The subnet is correctly configured as a public subnet
+Internet access is enabled via the Internet Gateway
+The instance is reachable externally (e.g., via SSH)
+
+---
+
+### 📸 Public EC2 Instance (Networking Tab) 
+![Public EC2 Instance](./screenshots/public-ec2.png)
+
+---
+
+## 🧠 Concept Demonstrated
+Difference between public and private subnets
+Role of an Internet Gateway (IGW)
+How public IP addresses enable external communication
+Real-world cloud network architecture design
+
+---
+
 ## 🪣 S3 Secure File Storage (Engineering Use Case)
 
 A secure Amazon S3 bucket was created by the administrator and accessed by the Engineering team.
