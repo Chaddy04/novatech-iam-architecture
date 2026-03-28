@@ -109,11 +109,11 @@ This shows how cloud resources are made accessible over the internet.
 ---
 
 ## Implementation Details
-VPC: novatech-vpc
-Subnet: public-subnet
-Auto-assign Public IP: Enabled
-Internet Gateway: Attached to VPC
-Route Table: Configured with route to 0.0.0.0/0 via IGW
+- VPC: novatech-vpc
+- Subnet: public-subnet
+- Auto-assign Public IP: Enabled
+- Internet Gateway: Attached to VPC
+- Route Table: Configured with route to 0.0.0.0/0 via IGW
 
 ---
 
@@ -121,15 +121,15 @@ Route Table: Configured with route to 0.0.0.0/0 via IGW
 
 The EC2 instance successfully received:
 
-Public IPv4 address → 13.63.238.10
-Private IP address → 10.0.1.83
-Running state confirmed
+- Public IPv4 address → 13.63.238.10
+- Private IP address → 10.0.1.83
+- Running state confirmed
 
 This verifies that:
 
-The subnet is correctly configured as a public subnet
-Internet access is enabled via the Internet Gateway
-The instance is reachable externally (e.g., via SSH)
+- The subnet is correctly configured as a public subnet
+- Internet access is enabled via the Internet Gateway
+- The instance is reachable externally (e.g., via SSH)
 
 ---
 
@@ -139,10 +139,10 @@ The instance is reachable externally (e.g., via SSH)
 ---
 
 ## 🧠 Concept Demonstrated
-Difference between public and private subnets
-Role of an Internet Gateway (IGW)
-How public IP addresses enable external communication
-Real-world cloud network architecture design
+- Difference between public and private subnets
+- Role of an Internet Gateway (IGW)
+- How public IP addresses enable external communication
+- Real-world cloud network architecture design
 
 ---
 
